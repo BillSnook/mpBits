@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A36F1B56B7A65A583176652B /* Pods_mpBits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278A7A257C6AAD95476FFE0A /* Pods_mpBits.framework */; };
 		A9E854581C481495000BA3D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E854571C481495000BA3D6 /* AppDelegate.swift */; };
 		A9E8545A1C481495000BA3D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E854591C481495000BA3D6 /* ViewController.swift */; };
 		A9E8545D1C481495000BA3D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E8545B1C481495000BA3D6 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		A9E854621C481495000BA3D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E854601C481495000BA3D6 /* LaunchScreen.storyboard */; };
 		A9E8546D1C481496000BA3D6 /* mpBitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E8546C1C481496000BA3D6 /* mpBitsTests.swift */; };
 		A9E854781C481496000BA3D6 /* mpBitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E854771C481496000BA3D6 /* mpBitsUITests.swift */; };
+		A9E854861C481F29000BA3D6 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E854851C481F29000BA3D6 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		278A7A257C6AAD95476FFE0A /* Pods_mpBits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mpBits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EAC3211E596EFB6D5291ABE /* Pods-mpBits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpBits.release.xcconfig"; path = "Pods/Target Support Files/Pods-mpBits/Pods-mpBits.release.xcconfig"; sourceTree = "<group>"; };
 		A9E854541C481495000BA3D6 /* mpBits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mpBits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E854571C481495000BA3D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9E854591C481495000BA3D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		A9E854731C481496000BA3D6 /* mpBitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mpBitsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E854771C481496000BA3D6 /* mpBitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpBitsUITests.swift; sourceTree = "<group>"; };
 		A9E854791C481496000BA3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9E854851C481F29000BA3D6 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		E0F0D187960BF1800E1775AF /* Pods-mpBits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpBits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mpBits/Pods-mpBits.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36F1B56B7A65A583176652B /* Pods_mpBits.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D4C8BD8FC70519D7C3D709C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				278A7A257C6AAD95476FFE0A /* Pods_mpBits.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		894E90C0BD7B96443C210223 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0F0D187960BF1800E1775AF /* Pods-mpBits.debug.xcconfig */,
+				7EAC3211E596EFB6D5291ABE /* Pods-mpBits.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A9E8544B1C481495000BA3D6 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,8 @@
 				A9E8546B1C481496000BA3D6 /* mpBitsTests */,
 				A9E854761C481496000BA3D6 /* mpBitsUITests */,
 				A9E854551C481495000BA3D6 /* Products */,
+				894E90C0BD7B96443C210223 /* Pods */,
+				1D4C8BD8FC70519D7C3D709C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +125,7 @@
 			children = (
 				A9E854571C481495000BA3D6 /* AppDelegate.swift */,
 				A9E854591C481495000BA3D6 /* ViewController.swift */,
+				A9E854851C481F29000BA3D6 /* Networking.swift */,
 				A9E8545B1C481495000BA3D6 /* Main.storyboard */,
 				A9E8545E1C481495000BA3D6 /* Assets.xcassets */,
 				A9E854601C481495000BA3D6 /* LaunchScreen.storyboard */,
@@ -132,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9E8547C1C481496000BA3D6 /* Build configuration list for PBXNativeTarget "mpBits" */;
 			buildPhases = (
+				9D5C5182A0BF1F4488C4752E /* Check Pods Manifest.lock */,
 				A9E854501C481495000BA3D6 /* Sources */,
 				A9E854511C481495000BA3D6 /* Frameworks */,
 				A9E854521C481495000BA3D6 /* Resources */,
+				A65F94CD69392C9971681040 /* Embed Pods Frameworks */,
+				283D30C37370BB3A965BAD1F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,11 +281,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		283D30C37370BB3A965BAD1F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpBits/Pods-mpBits-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D5C5182A0BF1F4488C4752E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A65F94CD69392C9971681040 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpBits/Pods-mpBits-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9E854501C481495000BA3D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E854861C481F29000BA3D6 /* Networking.swift in Sources */,
 				A9E8545A1C481495000BA3D6 /* ViewController.swift in Sources */,
 				A9E854581C481495000BA3D6 /* AppDelegate.swift in Sources */,
 			);
@@ -397,6 +476,7 @@
 		};
 		A9E8547D1C481496000BA3D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0F0D187960BF1800E1775AF /* Pods-mpBits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = mpBits/Info.plist;
@@ -408,6 +488,7 @@
 		};
 		A9E8547E1C481496000BA3D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EAC3211E596EFB6D5291ABE /* Pods-mpBits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = mpBits/Info.plist;
@@ -484,6 +565,7 @@
 				A9E8547E1C481496000BA3D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9E8547F1C481496000BA3D6 /* Build configuration list for PBXNativeTarget "mpBitsTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +574,7 @@
 				A9E854811C481496000BA3D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9E854821C481496000BA3D6 /* Build configuration list for PBXNativeTarget "mpBitsUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +583,7 @@
 				A9E854841C481496000BA3D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -31,9 +31,10 @@ class ViewController: UIViewController, JukeboxDelegate {
 		Networking.getTrackData( returnDict )
 		
 		playButton.setTitle("Loading", forState: .Normal)
+		playButton.enabled = false
 		backButton.setTitle("<<", forState: .Normal)
-		forwardButton.setTitle(">>", forState: .Normal)
 		backButton.enabled = false
+		forwardButton.setTitle(">>", forState: .Normal)
 }
 
 	override func didReceiveMemoryWarning() {
@@ -43,7 +44,7 @@ class ViewController: UIViewController, JukeboxDelegate {
 
 
 	func returnDict( resultDict: [String:String] ) -> () {
-		print( "Got result: \(resultDict)" )
+//		print( "Got result: \(resultDict)" )
 		
 		tuneArray.append(resultDict)
 		tuneIndex = tuneArray.count - 1		// Current index
@@ -118,7 +119,7 @@ class ViewController: UIViewController, JukeboxDelegate {
 	}
 
 	@IBAction func playTouched(sender: UIButton) {
-		print( "playTouched: \(self.jukeBox!.state)" )
+//		print( "playTouched: \(self.jukeBox!.state)" )
 		switch self.jukeBox!.state {
 		case .Ready, .Paused:
 			self.jukeBox!.play()

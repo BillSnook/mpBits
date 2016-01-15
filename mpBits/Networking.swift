@@ -18,7 +18,7 @@ typealias TrackBlock = ([String:String]) -> ()
 class Networking {
 	
 	class func getTrackData( trackReturn: TrackBlock ) {
-		print( "getTrackData" )
+//		print( "getTrackData" )
 		
 		Alamofire.request(.GET, "http://streaming.earbits.com/api/v1/track.json", parameters: ["stream_id": "5654d7c3c5aa6e00030021aa" ])
 			.responseJSON { response in
@@ -27,7 +27,7 @@ class Networking {
 				case .Success:
 					if let value = response.result.value {
 						let json = JSON(value)
-						print( "JSON:\n\(json)" )
+//						print( "JSON:\n\(json)" )
 						importantData[ "name" ] = json["name"].stringValue
 						importantData[ "artist_name" ] = json["artist_name"].stringValue
 						importantData[ "cover_image" ] = json["cover_image"].stringValue

@@ -7,6 +7,7 @@ target 'mpBits' do
 
 pod 'Alamofire', '~> 3.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'Jukebox', '~> 0.1.0'
 
 end
 

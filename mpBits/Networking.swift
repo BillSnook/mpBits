@@ -10,12 +10,15 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+
 typealias TrackBlock = ([String:String]) -> ()
+//typealias CoverBlock = ([String:String]) -> ()
 
 
 class Networking {
 	
 	class func getTrackData( trackReturn: TrackBlock ) {
+		print( "getTrackData" )
 		
 		Alamofire.request(.GET, "http://streaming.earbits.com/api/v1/track.json", parameters: ["stream_id": "5654d7c3c5aa6e00030021aa" ])
 			.responseJSON { response in
@@ -24,7 +27,7 @@ class Networking {
 				case .Success:
 					if let value = response.result.value {
 						let json = JSON(value)
-//						print( json )
+						print( "JSON:\n\(json)" )
 						importantData[ "name" ] = json["name"].stringValue
 						importantData[ "artist_name" ] = json["artist_name"].stringValue
 						importantData[ "cover_image" ] = json["cover_image"].stringValue
@@ -33,7 +36,7 @@ class Networking {
 						importantData[ "error" ] = "Problem: response value not found"
 					}
 				case .Failure(let error):
-					print(error)
+					print( "URLRequest failure: \(error)" )
 					importantData[ "error" ] = "Error: \(error)"
 
 				}
@@ -42,14 +45,17 @@ class Networking {
 
 	}
 
-	class func getMediaFile( fileName: String )->Bool {
+	class func getCoverImage ( source: String, imageView: UIImageView ) {
 		
-		print( "Get file: \(fileName)" )
-//		Alamofire.request(.GET, fileName).response() {
-//			(_, _, data, _) in
-//			
-//			
-//		}
-		return false
+		if let urlEncoded = source.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) {
+			Alamofire.request(.GET, NSURL( string: urlEncoded )!, parameters: [:])
+				.response { ( _, _, data, _ ) in
+					let image = UIImage(data: data! as NSData)
+					
+					imageView.image = image
+			}
+		}
+		
 	}
+	
 }

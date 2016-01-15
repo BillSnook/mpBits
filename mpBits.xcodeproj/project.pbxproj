@@ -52,6 +52,7 @@
 		A9E854771C481496000BA3D6 /* mpBitsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpBitsUITests.swift; sourceTree = "<group>"; };
 		A9E854791C481496000BA3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E854851C481F29000BA3D6 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		A9E854871C487281000BA3D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0F0D187960BF1800E1775AF /* Pods-mpBits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpBits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mpBits/Pods-mpBits.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +102,7 @@
 		A9E8544B1C481495000BA3D6 = {
 			isa = PBXGroup;
 			children = (
+				A9E854871C487281000BA3D6 /* README.md */,
 				A9E854561C481495000BA3D6 /* mpBits */,
 				A9E8546B1C481496000BA3D6 /* mpBitsTests */,
 				A9E854761C481496000BA3D6 /* mpBitsUITests */,

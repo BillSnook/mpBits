@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Jukebox
+import AVFoundation
 
-
-class ViewController: UIViewController, JukeboxDelegate {
+class ViewController: UIViewController {
 
 	@IBOutlet var artistName: UILabel!
 	@IBOutlet var trackName: UILabel!
@@ -19,10 +18,11 @@ class ViewController: UIViewController, JukeboxDelegate {
 	@IBOutlet var forwardButton: UIButton!
 	@IBOutlet var playButton: UIButton!
 	
-	private var jukeBox: Jukebox?
 	private var tuneArray: Array<Dictionary<String,String>> = []	// Preserve entries for skip to previous track
 	private var	tuneIndex = 0										// Index of current track
 
+	private var audioPlayer: AVPlayer?
+	private var audioPlaying = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -30,8 +30,8 @@ class ViewController: UIViewController, JukeboxDelegate {
 		
 		Networking.getTrackData( returnDict )
 		
-		playButton.setTitle("Loading", forState: .Normal)
-		playButton.enabled = false
+		playButton.setTitle("Pause", forState: .Normal)
+		playButton.enabled = true
 		backButton.setTitle("<<", forState: .Normal)
 		backButton.enabled = false
 		forwardButton.setTitle(">>", forState: .Normal)
@@ -73,10 +73,16 @@ class ViewController: UIViewController, JukeboxDelegate {
 			print( "No album cover image found" )
 		}
 		if let mediaFileName = resultDict["media_file"] {
-			jukeBox = Jukebox(delegate: self, items: [
-				JukeboxItem(URL: NSURL(string: mediaFileName)!)
-				])
-			jukeBox?.play()
+
+			// Play here
+			if let url = NSURL( string: mediaFileName ) {
+				audioPlayer = AVPlayer( playerItem: AVPlayerItem( asset: AVURLAsset( URL: url ) ) )
+				audioPlayer?.play()
+				playButton.setTitle("Pause", forState: .Normal)
+				playButton.enabled = true
+				
+			}
+			
 		} else {
 			print( "No media file URL found" )
 		}
@@ -84,54 +90,23 @@ class ViewController: UIViewController, JukeboxDelegate {
 
 // protocol delegates
 	
-	func jukeboxStateDidChange(jukebox : Jukebox) {
-		
-		print( "jukeboxStateDidChange: \(jukebox.state)" )
-		switch jukebox.state {
-		case .Ready:
-			playButton.setTitle("Play", forState: .Normal)
-			playButton.enabled = true
-		case .Playing:
-			playButton.setTitle("Pause", forState: .Normal)
-			playButton.enabled = true
-		case .Failed:
-			playButton.setTitle("Failed", forState: .Normal)
-			playButton.enabled = false
-		case .Paused:
-			playButton.setTitle("Play", forState: .Normal)
-			playButton.enabled = true
-		case .Loading:
-			playButton.setTitle("Loading", forState: .Normal)
-			playButton.enabled = false
-		}
-	}
-	
-	func jukeboxPlaybackProgressDidChange(jukebox : Jukebox) {
-		
-//		print( "jukeboxPlaybackProgressDidChange: \(jukebox.currentItem?.currentTime)" )
-	}
-	
-	func jukeboxDidLoadItem(jukebox : Jukebox, item : JukeboxItem) {
-		
-		print( "jukeboxDidLoadItem - duration: \(item.duration)" )
-//		jukebox.play()
-
-	}
 
 	@IBAction func playTouched(sender: UIButton) {
-//		print( "playTouched: \(self.jukeBox!.state)" )
-		switch self.jukeBox!.state {
-		case .Ready, .Paused:
-			self.jukeBox!.play()
-		case .Playing:
-			self.jukeBox!.pause()
-		default:
-			break
+//		print( "playTouched" )
+
+		if audioPlaying {
+			audioPlaying = false
+			audioPlayer?.pause()
+			playButton.setTitle("Play", forState: .Normal)
+		} else {
+			audioPlaying = true
+			audioPlayer?.play()
+			playButton.setTitle("Pause", forState: .Normal)
 		}
 	}
 	
 	@IBAction func backTouched(sender: UIButton) {
-		self.jukeBox!.stop()
+		audioPlayer?.pause()
 		tuneIndex--
 		if tuneIndex <= 0 {
 			backButton.enabled = false
@@ -144,7 +119,7 @@ class ViewController: UIViewController, JukeboxDelegate {
 	
 	
 	@IBAction func nextTouched(sender: UIButton) {
-		self.jukeBox!.stop()
+		audioPlayer?.pause()
 		backButton.enabled = true
 		if tuneIndex++ < (tuneArray.count - 1) {
 			setupTrack( tuneArray[tuneIndex])
